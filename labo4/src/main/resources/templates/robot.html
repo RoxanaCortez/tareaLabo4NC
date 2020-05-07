@@ -3,16 +3,34 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Seguridad</title>
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+<link href="css/estilo_l4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
+<style>
+
+</style>
 <body>
-	<form th:action="@{/seguridad}" th:object="${robot}" method = "post">
-		
-		<label>Marcar solo si usted es un robot</label>
-		<input type = "radio" th:field="*{soyRobot}" th:value = "${false}">
-		<span th:errors="*{soyRobot}" style="color: #E81505"></span><br>
-	
-		<input type="submit" value="Aceptar"><br>
-	</form>
-	<a href="/producto">Regresar</a>
+	<div class="contenedor-robot">
+		<form th:action="@{/seguridad}" th:object="${robot}" method="post">
+			<div class="contenedor-radio">
+				<input type="radio" id="radio_id"  th:field="*{soyRobot}" th:value = "${false}"/> 
+				<label for="radio_id" class="texto"> 
+					<span class="fa-stack"> 
+						<i class="fa fa-circle-o fa-stack-1x"></i> 
+						<i class="fa fa-check-circle fa-stack-1x"></i>
+					</span> Soy un robot <i id="robot" class="fas fa-robot"></i><br>
+					<span th:errors="*{soyRobot}" class="error"></span>
+				</label>
+			</div>
+			<input class="boton-aceptar" type="submit" value="Aceptar"> 
+		</form>
+		<a href="/producto"> 
+			<input class="boton-regresar" type="submit" value="Regresar">
+		</a>
+	</div>
 </body>
 </html>
+
+
